@@ -1,0 +1,383 @@
+{
+  "categories": [
+    {
+      "id": "integrity",
+      "name": "Integrity",
+      "subcategories": [
+        {
+          "id": "authenticity",
+          "name": "Authenticity",
+          "virtues": [
+            {
+              "id": "self-knowledge",
+              "name": "Self-Knowledge",
+              "content": [
+                "I know who I am and what matters.",
+                "I have unbending sense of identity.",
+                "With this clarity I cut through the noise."
+              ]
+            },
+            {
+              "id": "self-realization",
+              "name": "Self-Realization",
+              "content": [
+                "I seek within.",
+                "Love, fulfillment, happiness, strength, motivation, pride, growth, wisdom…",
+                "All these values already exist within me.",
+                "All I need to do is to recognize, tap in, and cultivate them.",
+                "I know that external support can assist, lubricate, and accentuate my inner values.",
+                "But I firmly understand that they cannot be the source.",
+                "I know that true greatness is not somewhere out there, something I need to acquire.",
+                "I do not seek outside to find them.",
+                "I seek within."
+              ]
+            },
+            {
+              "id": "sincerity",
+              "name": "Sincerity",
+              "content": [
+                "I am sincere.",
+                "I know how precious life is, and I don't waste it with an ounce insincerity.",
+                "When I say something, I mean it.",
+                "When I show up, I show up as who I am.",
+                "The way I show respect is through my eyes — I look eye to eye."
+              ]
+            },
+            {
+              "id": "confidence",
+              "name": "Confidence",
+              "content": [
+                "I am unappologetically me.",
+                "Life is too precious to worry about what other people think of me.",
+                "I get to the the point.",
+                "I speak my truth."
+              ]
+            },
+            {
+              "id": "intentionality",
+              "name": "Intentionality",
+              "content": [
+                "I begin with the end in mind.",
+                "I look ahead and act with intension.",
+                "I don't waste my moves."
+              ]
+            },
+            {
+              "id": "intuition",
+              "name": "Intuition",
+              "content": [
+                "I know how to tune into my intuition.",
+                "I have to courage trust my instict."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resilience",
+          "name": "Resilience",
+          "virtues": [
+            {
+              "id": "responsibility",
+              "name": "Responsibility",
+              "content": [
+                "I am the designer of my life.",
+                "My life is my responsibility.",
+                "I don't point fingers.",
+                "I take initiatives."
+              ]
+            },
+            {
+              "id": "self-regulation",
+              "name": "Self-Regulation",
+              "content": [
+                "I am a master of my own thoughts, emotions, and actions.",
+                "I can manage my urges.",
+                "I take charge of my own state of mind."
+              ]
+            },
+            {
+              "id": "integrity-resilience",
+              "name": "Resilience",
+              "content": [
+                "I know how to take shit.",
+                "I don't let discomfort get in the way of achieving what I want.",
+                "I have befriended discomfort instead of resisting it."
+              ]
+            },
+            {
+              "id": "grit",
+              "name": "Grit",
+              "content": [
+                "I'm a fighter.",
+                "I fight till the end.",
+                "I don't give up."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flexibility",
+          "name": "Flexibility",
+          "virtues": [
+            {
+              "id": "flexibility",
+              "name": "Flexibility",
+              "content": [
+                "I am not stubborn.",
+                "I am not brittle.",
+                "I know how to bend.",
+                "I embrace change."
+              ]
+            },
+            {
+              "id": "balance",
+              "name": "Balance",
+              "content": [
+                "I know that anything extreme can be detrimental.",
+                "I balance my perspectives.",
+                "I can recognize when I sway too far and can recenter myself."
+              ]
+            },
+            {
+              "id": "acceptance",
+              "name": "Acceptance",
+              "content": [
+                "I accept the reality and make peace with it even as I'm trying to change it.",
+                "I don't fight with nature.",
+                "If I don't like something it, I give it a hug.",
+                "A radical disarmament."
+              ]
+            },
+            {
+              "id": "patience",
+              "name": "Patience",
+              "content": [
+                "I don't let impatience rob off the joy of my life.",
+                "Life is too precious.",
+                "I enjoy the journey, even the painful one.",
+                "It's all my life, every single one of them.",
+                "I do not rush."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "excellence",
+          "name": "Excellence",
+          "virtues": [
+            {
+              "id": "excellence",
+              "name": "Excellence",
+              "content": [
+                "I know my standards.",
+                "And I uphold them — especially when it's easier not to.",
+                "I don't compromise core principles.",
+                "Good enough is not enough for me.",
+                "I do not accept mediocrety.",
+                "This is my life.",
+                "I do my utmost."
+              ]
+            },
+            {
+              "id": "selectivity",
+              "name": "Selectivity",
+              "content": [
+                "I devote my entire self — but on few things only.",
+                "I focus intensely.",
+                "I don't get distracted by the shiny new things.",
+                "I put first things first.",
+                "I give it my full attention."
+              ]
+            },
+            {
+              "id": "preparedness",
+              "name": "Preparedness",
+              "content": [
+                "I do my homework.",
+                "I show up ready.",
+                "I put in the work."
+              ]
+            },
+            {
+              "id": "intensity",
+              "name": "Intensity",
+              "content": [
+                "I got a fire in my belly.",
+                "I approach everything with heartfelt intensity.",
+                "Everything I do is personal to me.",
+                "I care with my soul."
+              ]
+            },
+            {
+              "id": "optimism",
+              "name": "Optimism",
+              "content": [
+                "I have a vision.",
+                "I imagine the future that doesn't exist yet.",
+                "I am hopeful in the face of difficulties.",
+                "I never doubt in my capacity to make a postive difference."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curiosity",
+      "name": "Curiosity",
+      "subcategories": [],
+      "virtues": [
+        {
+          "id": "curiosity",
+          "name": "Curiosity",
+          "content": [
+            "I am insatiably curious.",
+            "I am always headed towards the unknown.",
+            "I embrace confusion."
+          ]
+        },
+        {
+          "id": "humility",
+          "name": "Humility",
+          "content": [
+            "I am not perfect.",
+            "I can make mistake.",
+            "I seek honest feedback without defending myself.",
+            "I put my ego aside and always speak at an eye level."
+          ]
+        },
+        {
+          "id": "beginners",
+          "name": "Beginner's Mindset",
+          "content": [
+            "I don't know everything.",
+            "I am here to learn.",
+            "I question things that are too obvious or certain.",
+            "I regularly rethink my beliefs.",
+            "I am untethered by the past."
+          ]
+        },
+        {
+          "id": "non-judgment",
+          "name": "Non-Judgment",
+          "content": [
+            "I don't plunge into first-glance judgement — both towards others and myself.",
+            "I seek to understand before forming my opinion.",
+            "I always practice empathy and deep listening."
+          ]
+        },
+        {
+          "id": "honesty",
+          "name": "Honesty",
+          "content": [
+            "I don't shy away from facing the truth.",
+            "I have the courage to have the uncomfortable conversation.",
+            "I am honest with myself and others."
+          ]
+        },
+        {
+          "id": "awareness",
+          "name": "Awareness",
+          "content": [
+            "I am present.",
+            "I am mindful of my own mind.",
+            "I am observant and attentive to the moment and surroundings."
+          ]
+        },
+        {
+          "id": "wonder",
+          "name": "Wonder",
+          "content": [
+            "I have a deep sense of wonder.",
+            "I engage with life by becoming genuinely interested.",
+            "I am always in awe of the magic of life."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warmth",
+      "name": "Warmth",
+      "subcategories": [],
+      "virtues": [
+        {
+          "id": "warmth",
+          "name": "Warmth",
+          "content": [
+            "I always smile.",
+            "I always reach for hug — physically and metaphorically.",
+            "I emanate warmth in my voice."
+          ]
+        },
+        {
+          "id": "compassion",
+          "name": "Compassion",
+          "content": [
+            "I see our common humanity.",
+            "I feel the struggles of others.",
+            "I rejoice in the success of others.",
+            "I share the ride together."
+          ]
+        },
+        {
+          "id": "forgiveness",
+          "name": "Forgiveness",
+          "content": [
+            "I always forgive myself immediately and fully.",
+            "That is to say — I don't hold grudge.",
+            "I take accountability but I don't blame myself.",
+            "I accept my humanness.",
+            "And I extend this forgiveness to everyone else."
+          ]
+        },
+        {
+          "id": "ease",
+          "name": "Ease",
+          "content": [
+            "I am at ease.",
+            "I am fully engaged but I don't tense up.",
+            "I dance in rhythm.",
+            "I glide through the waves without crashing it."
+          ]
+        },
+        {
+          "id": "generosity",
+          "name": "Generosity",
+          "content": [
+            "I am generous of my spirit, attention, time, and resources.",
+            "I give without expectation of return.",
+            "I think in abundance."
+          ]
+        },
+        {
+          "id": "appreciation",
+          "name": "Appreciation",
+          "content": [
+            "I notice the small details.",
+            "I am always grateful.",
+            "I always make sure to express my appreciation in ways that people can feel it."
+          ]
+        },
+        {
+          "id": "intimacy",
+          "name": "Intimacy",
+          "content": [
+            "I know how to be intimate.",
+            "I can be vulnerable.",
+            "I can be close with others."
+          ]
+        },
+        {
+          "id": "playfulness",
+          "name": "Playfulness",
+          "content": [
+            "I am always playful.",
+            "I have a sense of humor.",
+            "I don't take myself too seriously.",
+            "I have fun."
+          ]
+        }
+      ]
+    }
+  ]
+}
