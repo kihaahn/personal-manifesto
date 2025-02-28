@@ -77,6 +77,10 @@ body {
   cursor: pointer;
   color: rgb(168, 168, 168);
   transition: color 0.1s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .sub-category ul li:hover {
   color: rgb(235, 185, 120);
@@ -116,18 +120,53 @@ body {
 /* Media Queries for Mobile */
 @media screen and (max-width: 768px) {
   .layout {
-    margin: 10px;
-    padding: 10px;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
   }
 
   .both-columns {
     flex-direction: column;
+    width: 100%;
   }
 
   .categories {
-    width: 100%;
-    margin-bottom: 20px;
-    flex-direction: column;
+    width: auto;
+    margin: 0;
+    padding: 0 15px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 20px;
+  }
+
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sub-category {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: auto;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .sub-category ul {
+    width: auto;
+    min-width: max-content;
+  }
+
+  .sub-category ul li {
+    padding: 5px 10px;
+    margin: 0;
+    white-space: nowrap;
+    width: auto;
+    font-size: 0.9em;
   }
 
   .right-column {
@@ -176,10 +215,10 @@ body {
   }
 
   .sub-category + .sub-category {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
-  /* Adjust font sizes for mobile */
+  /* Adjust font sizes for mobile - keep them consistent */
   body {
     font-size: 1em;
   }
@@ -190,5 +229,12 @@ body {
 
   .sub-category h3 {
     font-size: 0.9em;
+  }
+
+  .sub-category ul li {
+    padding: 5px 10px;
+    margin: 0;
+    white-space: nowrap;
+    width: auto;
   }
 }
