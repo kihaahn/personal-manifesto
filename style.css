@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Fcalson';
+    src: url('fonts/FCaslon12New-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fcalson';
+    src: url('fonts/FCaslon12New-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+  font-family: 'Fcalson', serif;
+  font-size: 1.1em;
+  line-height: 1.2;
+  color: #ffffff;
+  background: #201f1f;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Left Column: three subcolumns */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.both-columns {
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* Default behavior, but good to be explicit */
+    align-items: stretch; /* Ensures elements stretch to full height */
+    justify-content: space-between; /* Distributes elements evenly */
+}
+.virtues {
+  width: 40%;
+  display: flex;
+}
+.virtue-category {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.virtue-category h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #e8cfbb;
+}
+.virtue-category h3 {
+    font-size: 1.0em;
+    font-style: italic;
+    margin-bottom: 0.2em;
+    margin-top: 1.5em;
+    color: #e8cfbb;
+  }
+.virtue-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.virtue-category ul li {
+  padding: 2px;
+  margin-bottom: 0em;
+  cursor: pointer;
+  color: rgb(168, 168, 168);
+  transition: color 0.1s ease-in-out;
+}
+.virtue-category ul li:hover {
+  color: rgb(235, 185, 120);
+}
+
+/* Right Column: Detail display area */
+.right-column {
+  width: 60%;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+.default-text {
+  font-style: italic;
+  color: #777;
+}
+.detail {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  .detail.active {
+    opacity: 1;
+    /* display is handled via JS */
+  }
