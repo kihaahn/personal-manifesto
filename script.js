@@ -62,6 +62,13 @@ function generateInteractiveSections(categories) {
   const rightColumn = document.querySelector('.right-column');
   rightColumn.innerHTML = ''; // Clear existing content
 
+  // Add click handler to right column for mobile
+  rightColumn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      rightColumn.classList.remove('mobile-active');
+    }
+  });
+
   categories.forEach(category => {
     const sectionDiv = document.createElement('div');
     sectionDiv.className = 'interactive-section';
@@ -86,7 +93,7 @@ function generateInteractiveSections(categories) {
 
   // Add click event listeners
   document.querySelectorAll('.sub-category li').forEach(li => {
-    li.addEventListener('click', () => {
+    li.addEventListener('click', (e) => {
       const targetId = li.getAttribute('data-target');
       
       // Remove active class from all items
@@ -108,6 +115,12 @@ function generateInteractiveSections(categories) {
       if (targetDetail) {
         targetDetail.style.display = 'block';
         setTimeout(() => targetDetail.classList.add('active'), 10);
+      }
+
+      // Mobile-specific behavior
+      if (window.innerWidth <= 768) {
+        e.stopPropagation(); // Prevent the right column click handler from firing
+        rightColumn.classList.add('mobile-active');
       }
     });
   });
