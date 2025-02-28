@@ -39,48 +39,48 @@ body {
 .both-columns {
     width: 100%;
     display: flex;
-    flex-direction: row; /* Default behavior, but good to be explicit */
-    align-items: stretch; /* Ensures elements stretch to full height */
-    justify-content: space-between; /* Distributes elements evenly */
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
 }
-.virtues {
+.categories {
   width: 40%;
   display: flex;
 }
-.virtue-category {
+.sub-category {
   flex: 1;
   padding: 10px;
   box-sizing: border-box;
 }
-.virtue-category h2 {
+.sub-category h2 {
   font-size: 1.2em;
   margin-bottom: 0.5em;
   color: #e8cfbb;
 }
-.virtue-category h3 {
+.sub-category h3 {
     font-size: 1.0em;
     font-style: italic;
     margin-bottom: 0.2em;
     margin-top: 1.5em;
     color: #e8cfbb;
-  }
-.virtue-category ul {
+}
+.sub-category ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.virtue-category ul li {
+.sub-category ul li {
   padding: 2px;
   margin-bottom: 0em;
   cursor: pointer;
   color: rgb(168, 168, 168);
   transition: color 0.1s ease-in-out;
 }
-.virtue-category ul li:hover {
+.sub-category ul li:hover {
   color: rgb(235, 185, 120);
 }
 
-.virtue-category ul li.active-item {
+.sub-category ul li.active-item {
   color: rgb(235, 185, 120);
   font-weight: bold;
 }

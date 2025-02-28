@@ -2,21 +2,21 @@
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    // Generate the virtues menu (left column)
-    generateVirtuesMenu(data.categories);
+    // Generate the categories menu (left column)
+    generateCategoriesMenu(data.categories);
     // Generate the interactive sections (right column)
     generateInteractiveSections(data.categories);
   })
   .catch(error => console.error('Error loading data:', error));
 
-function generateVirtuesMenu(categories) {
-  const virtuesContainer = document.querySelector('.virtues');
-  virtuesContainer.innerHTML = ''; // Clear existing content
+function generateCategoriesMenu(categories) {
+  const categoriesContainer = document.querySelector('.categories');
+  categoriesContainer.innerHTML = ''; // Clear existing content
 
   categories.forEach(category => {
     const categoryDiv = document.createElement('div');
-    categoryDiv.className = 'virtue-category';
-    categoryDiv.id = `virtue-${category.id}`;
+    categoryDiv.className = 'sub-category';
+    categoryDiv.id = `category-${category.id}`;
 
     // Add category title
     const categoryTitle = document.createElement('h2');
@@ -30,28 +30,28 @@ function generateVirtuesMenu(categories) {
         subcategoryTitle.textContent = subcategory.name;
         categoryDiv.appendChild(subcategoryTitle);
 
-        const virtuesList = document.createElement('ul');
+        const categoriesList = document.createElement('ul');
         subcategory.virtues.forEach(virtue => {
-          const virtueItem = createVirtueListItem(virtue);
-          virtuesList.appendChild(virtueItem);
+          const categoryItem = createCategoryListItem(virtue);
+          categoriesList.appendChild(categoryItem);
         });
-        categoryDiv.appendChild(virtuesList);
+        categoryDiv.appendChild(categoriesList);
       });
     } else if (category.virtues) {
       // If no subcategories, display virtues directly
-      const virtuesList = document.createElement('ul');
+      const categoriesList = document.createElement('ul');
       category.virtues.forEach(virtue => {
-        const virtueItem = createVirtueListItem(virtue);
-        virtuesList.appendChild(virtueItem);
+        const categoryItem = createCategoryListItem(virtue);
+        categoriesList.appendChild(categoryItem);
       });
-      categoryDiv.appendChild(virtuesList);
+      categoryDiv.appendChild(categoriesList);
     }
 
-    virtuesContainer.appendChild(categoryDiv);
+    categoriesContainer.appendChild(categoryDiv);
   });
 }
 
-function createVirtueListItem(virtue) {
+function createCategoryListItem(virtue) {
   const li = document.createElement('li');
   li.setAttribute('data-target', virtue.id);
   li.textContent = virtue.name;
@@ -85,12 +85,12 @@ function generateInteractiveSections(categories) {
   });
 
   // Add click event listeners
-  document.querySelectorAll('.virtue-category li').forEach(li => {
+  document.querySelectorAll('.sub-category li').forEach(li => {
     li.addEventListener('click', () => {
       const targetId = li.getAttribute('data-target');
       
       // Remove active class from all items
-      document.querySelectorAll('.virtue-category li').forEach(item => {
+      document.querySelectorAll('.sub-category li').forEach(item => {
         item.classList.remove('active-item');
       });
       
@@ -103,39 +103,32 @@ function generateInteractiveSections(categories) {
         detail.classList.remove('active');
       });
       
-      // Show selected detail with animation
-      const targetDetail = document.getElementById(targetId);
+      // Show the selected detail
+      const targetDetail = document.getElementById(`detail-${targetId}`);
       if (targetDetail) {
         targetDetail.style.display = 'block';
-        // Trigger reflow
-        void targetDetail.offsetWidth;
-        targetDetail.classList.add('active');
+        setTimeout(() => targetDetail.classList.add('active'), 10);
       }
     });
   });
-
-  // Show first virtue by default
-  const firstVirtueItem = document.querySelector('.virtue-category li');
-  if (firstVirtueItem) {
-    firstVirtueItem.click();
-  }
 }
 
 function createVirtueDetail(virtue) {
   const detailDiv = document.createElement('div');
   detailDiv.className = 'detail';
-  detailDiv.id = virtue.id;
-  detailDiv.style.display = 'none';
+  detailDiv.id = `detail-${virtue.id}`;
 
   const title = document.createElement('h2');
   title.textContent = virtue.name;
   detailDiv.appendChild(title);
 
-  virtue.content.forEach(text => {
-    const p = document.createElement('p');
-    p.textContent = text;
-    detailDiv.appendChild(p);
-  });
+  if (virtue.content) {
+    virtue.content.forEach(text => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      detailDiv.appendChild(p);
+    });
+  }
 
   return detailDiv;
 }
