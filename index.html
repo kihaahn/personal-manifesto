@@ -354,92 +354,129 @@
     });
 
     let currentDetail = null;
-let transitionId = 0;
-let latestDetail = null;
+    let activeItem = null;
+    let transitionId = 0;
+    let latestDetail = null;
 
-function fadeOut(element) {
-  return new Promise(resolve => {
-    let resolved = false;
-    const fallback = setTimeout(() => {
-      if (!resolved) {
-        element.style.display = 'none';
-        resolved = true;
-        resolve();
+    function fadeOut(element) {
+      return new Promise(resolve => {
+        let resolved = false;
+        const fallback = setTimeout(() => {
+          if (!resolved) {
+            element.style.display = 'none';
+            resolved = true;
+            resolve();
+          }
+        }, 600);
+
+        element.classList.remove('active');
+        element.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'opacity') {
+            clearTimeout(fallback);
+            element.style.display = 'none';
+            element.removeEventListener('transitionend', handler);
+            resolved = true;
+            resolve();
+          }
+        });
+      });
+    }
+
+    function fadeIn(element) {
+      return new Promise(resolve => {
+        let resolved = false;
+        const fallback = setTimeout(() => {
+          if (!resolved) {
+            resolved = true;
+            resolve();
+          }
+        }, 600);
+
+        element.style.display = 'block';
+        // Force reflow so the transition kicks in
+        element.offsetHeight;
+        element.classList.add('active');
+        element.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'opacity') {
+            clearTimeout(fallback);
+            element.removeEventListener('transitionend', handler);
+            resolved = true;
+            resolve();
+          }
+        });
+      });
+    }
+
+    function showDetail(item, isClick = false) {
+      const target = item.getAttribute('data-target');
+      const newDetail = document.getElementById(target);
+      if (!newDetail) return;
+
+      // Update the latest detail target
+      latestDetail = newDetail;
+      const thisTransitionId = ++transitionId;
+
+      // If the new detail is already active and this is a hover event, do nothing
+      if (newDetail === currentDetail && !isClick) return;
+
+      // If this is a click event, update the active item
+      if (isClick) {
+        if (activeItem) activeItem.classList.remove('active-item');
+        item.classList.add('active-item');
+        activeItem = item;
       }
-    }, 600);
 
-    element.classList.remove('active');
-    element.addEventListener('transitionend', function handler(e) {
-      if (e.propertyName === 'opacity') {
-        clearTimeout(fallback);
-        element.style.display = 'none';
-        element.removeEventListener('transitionend', handler);
-        resolved = true;
-        resolve();
-      }
-    });
-  });
-}
+      let fadeOutPromise = currentDetail ? fadeOut(currentDetail) : Promise.resolve();
 
-function fadeIn(element) {
-  return new Promise(resolve => {
-    let resolved = false;
-    const fallback = setTimeout(() => {
-      if (!resolved) {
-        resolved = true;
-        resolve();
-      }
-    }, 600);
-
-    element.style.display = 'block';
-    // Force reflow so the transition kicks in
-    element.offsetHeight;
-    element.classList.add('active');
-    element.addEventListener('transitionend', function handler(e) {
-      if (e.propertyName === 'opacity') {
-        clearTimeout(fallback);
-        element.removeEventListener('transitionend', handler);
-        resolved = true;
-        resolve();
-      }
-    });
-  });
-}
-
-document.querySelectorAll('.virtue-category ul li').forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    const target = item.getAttribute('data-target');
-    const newDetail = document.getElementById(target);
-    if (!newDetail) return;
-
-    // Update the latest detail target
-    latestDetail = newDetail;
-    const thisTransitionId = ++transitionId;
-
-    // If the new detail is already active, do nothing.
-    if (newDetail === currentDetail) return;
-
-    let fadeOutPromise = currentDetail ? fadeOut(currentDetail) : Promise.resolve();
-
-    fadeOutPromise.then(() => {
-      // If a newer hover occurred, thisTransitionId won't match.
-      if (thisTransitionId !== transitionId) {
-        // Ensure the most recent detail is visible.
-        if (latestDetail && latestDetail.style.display !== 'block') {
-          latestDetail.style.display = 'block';
-          latestDetail.offsetHeight; // force reflow
-          latestDetail.classList.add('active');
-          currentDetail = latestDetail;
+      fadeOutPromise.then(() => {
+        if (thisTransitionId !== transitionId) {
+          if (latestDetail && latestDetail.style.display !== 'block') {
+            latestDetail.style.display = 'block';
+            latestDetail.offsetHeight;
+            latestDetail.classList.add('active');
+            currentDetail = latestDetail;
+          }
+          return;
         }
-        return;
-      }
-      currentDetail = newDetail;
-      return fadeIn(newDetail);
-    }).catch(err => {
-      console.error('Transition error:', err);
+        currentDetail = newDetail;
+        return fadeIn(newDetail);
+      }).catch(err => {
+        console.error('Transition error:', err);
+      });
+    }
+
+    document.querySelectorAll('.virtue-category ul li').forEach(item => {
+      // Click event
+      item.addEventListener('click', () => {
+        if (item === activeItem) {
+          // If clicking the active item, deactivate it
+          item.classList.remove('active-item');
+          activeItem = null;
+          if (currentDetail) {
+            fadeOut(currentDetail);
+            currentDetail = null;
+          }
+        } else {
+          showDetail(item, true);
+        }
+      });
+
+      // Hover event
+      item.addEventListener('mouseenter', () => {
+        if (!activeItem) {
+          showDetail(item, false);
+        }
+      });
+
+      // Mouse leave event
+      item.addEventListener('mouseleave', () => {
+        if (!activeItem && currentDetail) {
+          fadeOut(currentDetail);
+          currentDetail = null;
+        }
+      });
     });
-  });
-});
+
   </script>
 </body>
 </html>

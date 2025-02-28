@@ -80,6 +80,11 @@ body {
   color: rgb(235, 185, 120);
 }
 
+.virtue-category ul li.active-item {
+  color: rgb(235, 185, 120);
+  font-weight: bold;
+}
+
 /* Right Column: Detail display area */
 .right-column {
   width: 60%;
